@@ -1,0 +1,32 @@
+INPUT:
+1.先輸入地圖的檔名，共三種地圖可選擇。  map1.txt  ~ map3.txt
+2. Enter Hero's icon
+3. Enter valid X,Y postion of Hero
+4. Enter Creature's icon
+5. Enter Trigger's icon
+
+
+user可自訂hero,creature,trigger icon，顏色為隨機，creture 的上下左右移動使用 const Position operator+(const Position& a, const Position& b)
+
+Rule:s
+1.當英雄生命為0時，或場上怪物都被消滅時結束遊戲，按esc鍵離開。
+2.輸入wasd控制Hero，k鍵為法術攻擊鍵，l鍵增加場上trigger，j鍵增加場上creature，空白鍵則是逃離鍵(第六點說明)
+3.兩者最多增加三隻，creature被消滅後不可再增加，trigger則是會一直留在場上。
+4. hero 經過trigger時，會使所以creature發現
+5. creture可穿牆行走
+6. 勝利方式: 1.消滅全場creature 2. 到'@'旁邊按下空白鍵則逃離成功!
+
+Hero:
+  攻擊範圍以hero為中心3*3
+  hero生命初始為100，若生命=0則遊戲結束
+  若hero在creature的左右、上下、斜向，則creature發現hero，並朝hero的方向移動; 若沒發現則到處遊蕩
+  經過trigger時，level+1，hp+20
+  hero若碰觸creature，或被攻擊，hero的生命-10。
+
+Creature
+  發現hero時會移動(上下左右)，但hero經過trigger時，就會斜向移動
+  creature生命3條，若被hero攻擊則生命-1，生命=0時消失
+  creature攻擊範圍也是3*3
+
+Trigger:
+  被hero經過時隨機生成下一個點，且點不為hero & creature的位置上
