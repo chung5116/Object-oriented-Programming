@@ -1,0 +1,24 @@
+INPUT: 無先前紀錄的情狀下
+1.Enter Hero's icon
+2. Enter Creature's icon
+
+
+
+Rule:s
+1.當英雄生命為0時，或通過全部關卡時結束遊戲 ; 按esc鍵離開。
+2.輸入wasd控制Hero，k鍵為法術攻擊鍵，j鍵施放ulimate(隨機對任意creature造成傷害，只能使用三次，並附有音效)，
+空白鍵則是逃離鍵(第六點說明)，每次換關時 生物回復hp，數量，hero的ulimate也回復。
+3. creture可破壞牆行走
+4. 勝利方式:  到'@'旁邊按下空白鍵為逃離，通過五關則成功
+5. 若要從新開始 刪除 "record.txt"即可
+
+Hero:
+  攻擊範圍以hero為中心3*3
+  hero生命初始為100，若生命=0則遊戲結束
+  若hero在creature的左右、上下，則creature發現hero，並朝hero的方向移動; 若沒發現則到處遊蕩
+  hero若碰觸creature，或被攻擊，hero的生命-10。
+
+Creature
+  發現hero時會移動(上下左右)，但hero經過trigger時，就會斜向移動
+  creature生命3條，若被hero攻擊則生命-1，生命=0時消失
+  creature攻擊範圍也是3*3
