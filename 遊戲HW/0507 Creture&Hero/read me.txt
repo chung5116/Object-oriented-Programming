@@ -1,0 +1,30 @@
+INPUT:
+1.先輸入地圖SIZE，因為這次需放入的物件較多，請輸入一個值 (15~25)，隨機產生迷宮地圖
+2. Enter Hero's icon
+3.場上6種生物 分別為蝙蝠B、狼W、幽靈G、鱷魚C、老虎T、獅子L
+
+
+user可自訂creature icon，顏色為隨機，creture 的上下左右使用wasd
+
+Rule:s
+1.當英雄生命為0時，結束遊戲，按esc鍵離開。
+2.輸入wasd控制Hero
+3.k鍵為法術攻擊鍵 範圍上下左右(長度:2)
+j鍵施放ulimate(隨機對任意creature造成傷害，只能使用三次，並附有音效)，
+Hero附近3*3有力場，生物碰到力場生命-1。
+4.空白鍵則是逃離鍵(第六點說明)
+5. creture可破壞牆行走
+6. 勝利方式: 到'@'旁邊按下空白鍵則逃離成功!
+
+Hero:
+  攻擊範圍以hero為中心3*3
+  hero生命初始為100，若生命=0則遊戲結束
+  若hero在creature的左右、上下，則creature發現hero，並朝hero的方向移動; 若沒發現則到處遊蕩
+  hero若碰觸creature，或被攻擊，hero的生命-20。
+
+Creature
+  每種creature生命都為2條，被攻擊則生命-1，生命為零時死亡
+  creature攻擊範圍也是3*3
+
+
+
